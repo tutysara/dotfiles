@@ -324,7 +324,7 @@ you should place your code here."
   (setq lsp-print-io t)
   (require 'lsp-mode)
   (global-lsp-mode t)
-  
+ 
 (defun lsp--java-get-root ()
   (let ((dir default-directory))
     (message "getting java root")
@@ -358,7 +358,7 @@ you should place your code here."
     '(progn
        (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
        (define-key flyspell-mouse-map [mouse-3] #'undefined)))
-  )
+ 
 
 ;; fix to use python from anaconda
 (setenv "PATH"
@@ -369,8 +369,11 @@ you should place your code here."
         )
 
 
-(evil-define-key 'hybrid ein:notebook-multilang-mode-map
-  (kbd "<tab>") 'ein:completer-complete)
+;; (evil-define-key 'hybrid ein:notebook-multilang-mode-map
+;;   (kbd "<tab>") 'ein:completer-complete)
+
+;; (evil-define-key 'hybrid ein:notebook-multilang-mode-map
+;;   (kbd ".") 'ein:notebook-complete-dot)
 
 ;; keybindings mirror ipython web interface behavior
 (evil-define-key 'hybrid ein:notebook-multilang-mode-map
@@ -393,7 +396,10 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ ))
+
+
+
 (defun dotspacemacs/emacs-custom-settings ()
   "Emacs custom settings.
 This is an auto-generated function, do not modify its content directly, use
