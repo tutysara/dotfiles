@@ -377,7 +377,7 @@ you should place your code here."
 
 (evil-define-key 'normal ein:notebook-multilang-mode-map
   (kbd "gd") 'ein:pytools-request-help
-  (kbd "gs") 'ein:pytools-jump-to-source)
+  (kbd "gs") 'ein:pytools-jump-to-source-command)
 
 
 
