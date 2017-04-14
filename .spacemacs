@@ -86,7 +86,7 @@ values."
    ;; `used-but-keep-unused' installs only the used packages but won't uninstall
    ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-inst ~/src/myprojects/dotfiles/all-packages 'used-only))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -375,10 +375,18 @@ you should place your code here."
 ;; (evil-define-key 'hybrid ein:notebook-multilang-mode-map
 ;;   (kbd ".") 'ein:notebook-complete-dot)
 
+(evil-define-key 'normal ein:notebook-multilang-mode-map
+     (kbd "gd") 'ein:pytools-request-help)
+
+
 ;; keybindings mirror ipython web interface behavior
 (evil-define-key 'hybrid ein:notebook-multilang-mode-map
   (kbd "<C-return>") 'ein:worksheet-execute-cell
   (kbd "<S-return>") 'ein:worksheet-execute-cell-and-goto-next)
+
+;; treat ein buffers and all temporary buffers as useful
+;; https://github.com/syl20bnr/spacemacs/issues/6683
+(setq spacemacs-useless-buffers-regexp '("^ "))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
