@@ -376,7 +376,9 @@ you should place your code here."
 ;;   (kbd ".") 'ein:notebook-complete-dot)
 
 (evil-define-key 'normal ein:notebook-multilang-mode-map
-     (kbd "gd") 'ein:pytools-request-help)
+  (kbd "gd") 'ein:pytools-request-help
+  (kbd "gs") 'ein:pytools-jump-to-source)
+
 
 
 ;; keybindings mirror ipython web interface behavior
