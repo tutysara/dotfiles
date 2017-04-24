@@ -73,6 +73,9 @@ values."
                                        (lsp-mode :location (recipe
                                                            :fetcher github
                                                            :repo "vibhavp/emacs-lsp"))
+                                       all-the-icons
+                                       all-the-icons-dired
+
                                       ;; (lsp-mode :location (recipe
                                       ;;                      :fetcher github
                                       ;;                      :repo "sourcegraph/emacs-lsp"))
@@ -85,10 +88,10 @@ values."
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
    ;; unused packages as well as their unused dependencies.
-   ;; `used-but-keep-unused' installs only the used packages but won't unmkjunkermillejohinstall
-   ;; them if they become unused. `all' installs *all*SySymbol's function definition is void: spacemacs|defvar-company-backendsmbol's function definition is void: spacemacs|defvar-company-backends packages supported by
+   ;; `used-but-keep-unused' installs only the used packages but won't uninstall
+   ;; them if they become unused. `all' installs *all* packages supported by
    ;; Spacemacs and never uninstall them. (default is `used-only')
-   dotspacemacs-inst ~/src/myprojects/dotfiles/all-packages 'used-only))
+   dotspacemacs-install-packages 'used-only))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -123,7 +126,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'hybrid
+   dotspacemacs-editing-style 'vim
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -420,8 +423,11 @@ you should place your code here."
   )
 
 (spacemacs|add-company-backends
-  :backends user-company-ein-backend
+;;  :backends user-company-ein-backend
+  :backends ein:company-backend
   :modes ein:notebook-mode)
+
+(setq neo-theme 'icons)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -455,7 +461,8 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (websocket define-word yapfify yaml-mode ws-butler winum which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill toc-org tagedit symon spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient-helm restart-emacs rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pdf-tools pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file ob-restclient ob-http neotree mwim move-text mmm-mode markdown-toc magit-gitflow macrostep lsp-mode lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode elisp-slime-nav ejc-sql ein dumb-jump diff-hl deft cython-mode csv-mode company-web company-tern company-statistics company-restclient company-go company-anaconda column-enforce-mode coffee-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu browse-at-remote auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (all-the-icons-dired winum unfill restclient-helm ob-restclient fuzzy company-restclient know-your-http-well tablist org alert log4e gntp markdown-mode skewer-mode simple-httpd json-snatcher json-reformat js2-mode haml-mode gitignore-mode fringe-helper git-gutter+ git-gutter flyspell-correct pos-tip magit magit-popup git-commit with-editor clomacs websocket web-completion-data dash-functional tern company inflections edn multiple-cursors paredit peg queue clojure-mode yasnippet anaconda-mode pythonic auto-complete flycheck direx cider smartparens evil helm helm-core avy hydra define-word go-guru go-eldoc company-go go-mode lsp-mode yapfify yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pdf-tools pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file ob-http neotree mwim move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode elisp-slime-nav ejc-sql ein dumb-jump diff-hl deft cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+ '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
