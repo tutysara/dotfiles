@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp -*-
+ ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
 
@@ -40,6 +40,7 @@ values."
      auto-completion
      better-defaults
      clojure
+     colors
      deft
      erc
      emacs-lisp
@@ -60,11 +61,13 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      restclient
+     so-long
      spell-checking
      syntax-checking
      version-control
      yaml
      )
+
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -75,11 +78,11 @@ values."
                                                            :repo "vibhavp/emacs-lsp"))
                                        all-the-icons
                                        all-the-icons-dired
-
                                       ;; (lsp-mode :location (recipe
                                       ;;                      :fetcher github
                                       ;;                      :repo "sourcegraph/emacs-lsp"))
                                       )
+
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -461,7 +464,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (all-the-icons-dired winum unfill restclient-helm ob-restclient fuzzy company-restclient know-your-http-well tablist org alert log4e gntp markdown-mode skewer-mode simple-httpd json-snatcher json-reformat js2-mode haml-mode gitignore-mode fringe-helper git-gutter+ git-gutter flyspell-correct pos-tip magit magit-popup git-commit with-editor clomacs websocket web-completion-data dash-functional tern company inflections edn multiple-cursors paredit peg queue clojure-mode yasnippet anaconda-mode pythonic auto-complete flycheck direx cider smartparens evil helm helm-core avy hydra define-word go-guru go-eldoc company-go go-mode lsp-mode yapfify yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pdf-tools pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file ob-http neotree mwim move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode elisp-slime-nav ejc-sql ein dumb-jump diff-hl deft cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
+    (rainbow-mode rainbow-identifiers color-identifiers-mode winum unfill restclient-helm ob-restclient fuzzy company-restclient know-your-http-well tablist org alert log4e gntp markdown-mode skewer-mode simple-httpd json-snatcher json-reformat js2-mode haml-mode gitignore-mode fringe-helper git-gutter+ git-gutter flyspell-correct pos-tip magit magit-popup git-commit with-editor clomacs websocket web-completion-data dash-functional tern company inflections edn multiple-cursors paredit peg queue clojure-mode yasnippet anaconda-mode pythonic auto-complete flycheck direx cider smartparens evil helm helm-core avy hydra define-word go-guru go-eldoc company-go go-mode lsp-mode yapfify yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spacemacs-theme spaceline smeargle slim-mode scss-mode sass-mode reveal-in-osx-finder restclient restart-emacs rainbow-delimiters quelpa pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode pdf-tools pcre2el pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-plus-contrib org-download org-bullets open-junk-file ob-http neotree mwim move-text mmm-mode markdown-toc magit-gitflow macrostep lorem-ipsum livid-mode live-py-mode linum-relative link-hint less-css-mode launchctl json-mode js2-refactor js-doc info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu erc-yt erc-view-log erc-terminal-notifier erc-social-graph erc-image erc-hl-nicks emmet-mode elisp-slime-nav ejc-sql ein dumb-jump diff-hl deft cython-mode company-web company-tern company-statistics company-anaconda column-enforce-mode coffee-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
